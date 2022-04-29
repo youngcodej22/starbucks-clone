@@ -1,0 +1,63 @@
+/*BUTTON*/
+.btn {
+  & {
+    width: 130px;
+    padding: 10px;
+    border: 2px solid $color-primary;
+    border-radius: 4px;
+    color: $color-primary;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: block;
+    transition: .4s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+  
+  &--reverse {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:hover {
+      background-color: transparent;
+      color: $color-primary;
+    }
+  }
+  
+  &--brown {
+    color: $color-quaternary;
+    border-color: $color-quaternary;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-quaternary;
+    }
+  }
+  
+  &--gold {
+    color: $color-quinary;
+    border-color: $color-quinary;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-quinary;
+    }
+  }
+  
+  &--white {
+    color: $color-white;
+    border-color: $color-white;
+
+    &:hover {
+      color: $color-primary;
+      background-color: $color-white;
+    }
+  }
+}
+

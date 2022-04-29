@@ -1,0 +1,191 @@
+// Component 구성 다시 해야함
+
+/*PICK YOUR FAVORITE*/
+.pick-your-favorite {
+  background-image: url("../images/favorite_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+
+  .inner {
+    padding: 110px 0;
+  }
+
+  .text-group {
+    width: 362px;
+    margin-left: 100px;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .text-group .title {
+    margin-bottom: 40px;
+  }
+
+  .text-group .description {
+    margin-bottom: 40px;
+  }
+}
+
+/*RESERVE STORE*/
+.reserve-store {
+  background-image: url("../images/reserve_store_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+
+  .inner {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .medal {
+    /* 이미지의 크기에 맞춰서 px적용 */
+    width: 334px;
+    height: 334px;
+    /* 원근법을 적용 */
+    perspective: 600px;
+
+    .front {
+      /* 명시적으로 0도에서 시작한다는 걸 알려주기 위해 적용 */
+      transform: rotateY(0deg);
+    }
+
+    &:hover .front {
+      transform: rotateY(180deg);
+    }
+
+    .back {
+      transform: rotateY(-180deg);
+
+      .btn {
+        position: absolute;
+        top: 240px;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+    }
+
+    &:hover .back {
+      transform: rotateY(0deg);
+    }
+
+    .front,
+    .back {
+      width: inherit;
+      height: inherit;
+      position: absolute;
+      transition: 1s;
+      /* rotateY로 뒤집어놓은 뒷면을 hidden */
+      backface-visibility: hidden;
+    }
+  } // .medal
+} // .reserve-store
+
+
+/*FIND STORE*/
+.find-store {
+  background-image: url("../images/find_store_bg.jpg");
+
+  .inner {
+    height: 400px;
+  }
+
+  .texture1 {
+    position: absolute;
+    top: 0;
+    left: 400px;
+  }
+
+  .texture2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .picture {
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, .5);
+    position: absolute;
+  }
+
+  .picture1 {
+    top: -60px;
+    left: 0;
+  }
+
+  .picture2 {
+    top: 150px;
+    left: 250px;
+  }
+
+  .text-group {
+    position: absolute;
+    top: 120px;
+    left: 550px;
+
+    .title {
+      margin-bottom: 20px;
+    }
+
+    .description {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+
+/*AWARDS*/
+.awards {
+  background-color: #272727;
+
+  .inner {
+    padding: 40px 0;
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: 40px;
+  }
+
+  .swiper-prev,
+  .swiper-next {
+    width: 42px;
+    height: 42px;
+    outline: none;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: .3;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .4s;
+  }
+
+  .swiper-prev {
+    left: -100px;
+  }
+
+  .swiper-next {
+    right: -100px;
+  }
+
+  .swiper-prev:hover,
+  .swiper-next:hover {
+    background-color: #fff;
+    color: #333;
+  }
+}
+

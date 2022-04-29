@@ -1,0 +1,226 @@
+/*HEADER*/
+header {
+  /* body전체에 width를 가지기 위해 */
+  width: 100%;
+  /* header고정 + badges를 위해 */
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  background-color: #F6F5F0;
+  border-bottom: 1px solid #c8c8c8;
+
+  // '>' 안붙여도 된다.
+  > .inner {
+    height: 120px;
+  }
+
+  .logo {
+    height: 75px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+
+  .sub-menu {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: flex;
+
+    ul.menu {
+      font-family: Arial, sans-serif;
+      display: flex;
+
+      li {
+        position: relative;
+
+        &::before {
+          content: "";
+          width: 1px;
+          height: 12px;
+          background-color: #e5e5e5;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+        
+        /* 가상요소로 line처리 */
+        &:first-child::before {
+          display: none;
+        }
+
+        a {
+          /* a태그 버튼화 */
+          padding: 11px 16px;
+          display: block;
+          font-size: 13px;
+          color: #656565;
+
+          &:hover {
+            color: #000;
+          }
+        } // a
+      } // li
+    } // ul.menu
+
+    .search {
+      position: relative;
+      height: 34px;
+
+      input {
+        width: 36px;
+        height: inherit;
+        padding: 4px 10px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border-radius: 5px;
+        outline: none;
+        background-color: #fff;
+        color: #777;
+        font-size: 12px;
+        transition: width .4s;
+
+        &:focus {
+          width: 190px;
+          border-color: #669900;
+        }
+      } // input
+
+      .material-icons {
+        height: 24px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 5px;
+        margin: auto;
+        transition: .4s;
+
+        &:hover {
+          cursor: pointer;
+        }
+      } // .material-icons
+
+      /* JS와 연결되는 부분 */
+      &.focused {
+        .material-icons {
+          opacity: 0;
+        }
+      }
+    } // .search
+  } // .sub-menu
+
+  .main-menu {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    
+    .item {
+      .item__name {
+        display: block;
+        padding: 10px 20px 34px 20px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+      }
+
+      .item__contents {
+        width: 100%;
+        /* 뷰포트 기준으로 하기 위해 */
+        position: fixed;
+        /* top, bottom 없으면 요소 원래 위치를 그대로 사용 */
+        left: 0;
+        display: none;
+
+        .contents__menu {
+          background-color: #2C2A29;
+
+          /* 하위 ul요소에 영향이 가지 않게 '>'을 사용 */
+          > ul {
+            padding: 20px 0;
+            display: flex;
+
+            > li {
+              width: 220px;
+
+              h4 {
+                padding: 3px 0 12px 0;
+                font-size: 14px;
+
+                a {
+                  color: #fff;
+                } // a
+              } // h4
+
+              ul {
+                li {
+                  a {
+                    padding: 5px 0;
+                    font-size: 12px;
+                    color: #999;
+                    cursor: pointer;
+
+                    &:hover {
+                      color: #669900;
+                    }
+                  } // a
+                } // li
+              } // ul
+            } // li
+          } // ul
+        } // .contents__menu
+
+        .contents__texture {
+          padding: 26px 0;
+          font-size: 12px;
+          background-image: url("../images/main_menu_pattern.jpg");
+
+          h4 {
+            font-weight: 900;
+
+            a {
+              color: #999;
+            }
+          }
+
+          p {
+            color: #64a70b;
+            margin: 4px 0 14px;
+          }
+        } // .contents__texture
+      } // .item__contents
+      
+      &:hover {
+        cursor: pointer;
+
+        // header .main-menu .item:hover .item__name {
+        .item__name {
+          background-color: #2C2A29;
+          color: #669900;
+          border-radius: 6px 6px 0 0;
+        }
+
+        .item__contents {
+          display: block;
+        }
+      } // .item:hover
+    } // .item
+  } // .main-menu
+
+  .badges {
+    position: absolute;
+    top: 132px;
+    right: 12px;
+
+    .badge {
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, .15);
+      cursor: pointer;
+    }
+  }
+}
